@@ -1,0 +1,349 @@
+[
+    {
+        "name": "ESP32-S3-LCD-EV-Board",
+        "maintainer": "LVGL",
+        "hostOperatingsystem": [
+            "Linux",
+            "Windows",
+            "MacOS"
+        ],
+        "environment": [
+            "ESP-IDF"
+        ],
+        "hardware": {
+            "chipVendor": "Espressif",
+            "manufaturer": "Espressif",
+            "specs": {
+                "MCU": "ESP32-S3",
+                "RAM": "512 KB internal SRAM, 8/16 MB external PSRAM",
+                "Flash": "2/4/8/16 MB",
+                "GPU": "None",
+                "Resolution": "800x480 / 480x480",
+                "Display Size": "4.3\u201d / 3.95\u201d",
+                "Interface": "RGB LCD",
+                "Color Depth": "24-bit",
+                "Technology": "IPS",
+                "DPI": "216 px/inch / 171 px/inch",
+                "Touch Pad": "Capacitive (GT1151/FT5x06)"
+            }
+        },
+        "description": "ESP32-S3-LCD-EV-Board is a development board for evaluating and verifying ESP32-S3 screen interactive applications. It has the functions of touch screen interaction and voice interaction.",
+        "settings": [
+            {
+                "type": "dropdown",
+                "label": "Display",
+                "options": [
+                    {
+                        "name": "800x480",
+                        "value": "0",
+                        "default": "true"
+                    },
+                    {
+                        "name": "480x480",
+                        "value": "1"
+                    }
+                ],
+                "actions": [
+                    {
+                        "ifValue": "1",
+                        "toAppend": "CONFIG_BSP_LCD_SUB_BOARD_480_480=y",
+                        "filePath": "sdkconfig.defaults"
+                    }
+                ]
+            },
+            {
+                "type": "checkbox",
+                "label": "Show performance monitor",
+                "actions": [
+                    {
+                        "ifValue": "true",
+                        "toReplace": "CONFIG_LV_USE_PERF_MONITOR=.+",
+                        "newContent": "CONFIG_LV_USE_PERF_MONITOR=y",
+                        "filePath": "sdkconfig.defaults"
+                    },
+                    {
+                        "ifValue": "false",
+                        "toReplace": "CONFIG_LV_USE_PERF_MONITOR=.+",
+                        "newContent": "CONFIG_LV_USE_PERF_MONITOR=n",
+                        "filePath": "sdkconfig.defaults"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "LVGL on top of Linux graphics stack",
+        "maintainer": "LVGL",
+        "hostOperatingsystem": [
+            "Linux",
+            "Windows",
+            "MacOS"
+        ],
+        "environment": [
+            "VSCode",
+            "SDL"
+        ],
+        "description": "Example project to use LVGL on top of Linux graphics stack. Currently supported backends are either legacy framebuffer (fbdev), modern DRM/KMS, or SDL2.",
+        "settings": [
+            {
+                "type": "dropdown",
+                "label": "Color Depth",
+                "options": [
+                    {
+                        "name": "16 (RGB565)",
+                        "value": "16"
+                    },
+                    {
+                        "name": "24 (RGB565)",
+                        "value": "24"
+                    },
+                    {
+                        "name": "32 (RGB565)",
+                        "value": "32"
+                    }
+                ],
+                "actions": [
+                    {
+                        "toReplace": "#define LV_COLOR_DEPTH \\d+",
+                        "newContent": "#define LV_COLOR_DEPTH {value}",
+                        "filePath": "lv_conf.h"
+                    }
+                ]
+            },
+            {
+                "type": "dropdown",
+                "label": "Driver",
+                "options": [
+                    {
+                        "name": "Frame buffer device",
+                        "value": "0"
+                    },
+                    {
+                        "name": "DRM",
+                        "value": "1"
+                    },
+                    {
+                        "name": "SDL",
+                        "value": "2"
+                    }
+                ]
+            },
+            {
+                "type": "checkbox",
+                "label": "Show performance monitor",
+                "actions": [
+                    {
+                        "toReplace": "#define LV_USE_PERF_MONITOR .*",
+                        "newContent": "#define LV_USE_PERF_MONITOR {value}",
+                        "filePath": "lv_conf.h"
+                    }
+                ]
+            },
+            {
+                "actions": [
+                    {
+                        "ifValue": "0",
+                        "toReplace": "#define LV_USE_LINUX_FBDEV \\d+",
+                        "newContent": "#define LV_USE_LINUX_FBDEV 1",
+                        "filePath": "lv_conf.h"
+                    },
+                    {
+                        "ifValue": "1",
+                        "toReplace": "#define LV_USE_LINUX_DRM \\d+",
+                        "newContent": "#define LV_USE_LINUX_DRM 1",
+                        "filePath": "lv_conf.h"
+                    },
+                    {
+                        "ifValue": "2",
+                        "toReplace": "#define LV_USE_SDL \\d+",
+                        "newContent": "#define LV_USE_SDL 1",
+                        "filePath": "lv_conf.h"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Eclipse Simulator with SDL",
+        "maintainer": "LVGL",
+        "hostOperatingsystem": [
+            "Linux",
+            "Windows",
+            "MacOS"
+        ],
+        "environment": [
+            "Eclipse",
+            "SDL"
+        ],
+        "description": "The LVGL is written mainly for microcontrollers and embedded systems however you can run the library on your PC as well without any embedded hardware. The code written on PC can be simply copied when your are using an embedded system. The PC simulator is cross platform. Windows, Linux and OSX are supported, however on Windows it's easier to get started with a another simulator project. This project uses Eclipse CDT (as an IDE) and SDL =a low level driver library to open a window, and handle mouse, keyboard etc.)",
+        "settings": [
+            {
+                "type": "dropdown",
+                "label": "Color Depth",
+                "options": [
+                    {
+                        "name": "16 (RGB565)",
+                        "value": "16"
+                    },
+                    {
+                        "name": "24 (RGB565)",
+                        "value": "24"
+                    },
+                    {
+                        "name": "32 (RGB565)",
+                        "value": "32"
+                    }
+                ],
+                "actions": [
+                    {
+                        "toReplace": "#define LV_COLOR_DEPTH \\d+",
+                        "newContent": "#define LV_COLOR_DEPTH {value}",
+                        "filePath": "lv_conf.h"
+                    }
+                ]
+            },
+            {
+                "type": "checkbox",
+                "label": "Show performance monitor",
+                "actions": [
+                    {
+                        "toReplace": "#define LV_USE_PERF_MONITOR .*",
+                        "newContent": "#define LV_USE_PERF_MONITOR {value}",
+                        "filePath": "lv_conf.h"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Simulator project for LVGL embedded GUI Library",
+        "maintainer": "LVGL",
+        "hostOperatingsystem": [
+            "Linux",
+            "Windows",
+            "MacOS"
+        ],
+        "environment": [
+            "VSCode",
+            "SDL"
+        ],
+        "description": "The LVGL is written mainly for microcontrollers and embedded systems, however you can run the library on your PC as well without any embedded hardware. The code written on PC can be simply copied when your are using an embedded system. The project can use SDL but it can be easily relaced by any other built-in LVGL dirvers.",
+        "settings": [
+            {
+                "type": "dropdown",
+                "label": "Color Depth",
+                "options": [
+                    {
+                        "name": "16 (RGB565)",
+                        "value": "16"
+                    },
+                    {
+                        "name": "24 (RGB565)",
+                        "value": "24"
+                    },
+                    {
+                        "name": "32 (RGB565)",
+                        "value": "32"
+                    }
+                ],
+                "actions": [
+                    {
+                        "toReplace": "#define LV_COLOR_DEPTH \\d+",
+                        "newContent": "#define LV_COLOR_DEPTH {value}",
+                        "filePath": "lv_conf.h"
+                    }
+                ]
+            },
+            {
+                "type": "checkbox",
+                "label": "Show performance monitor",
+                "actions": [
+                    {
+                        "toReplace": "#define LV_USE_PERF_MONITOR .*",
+                        "newContent": "#define LV_USE_PERF_MONITOR {value}",
+                        "filePath": "lv_conf.h"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Renesas RA8D1-EK",
+        "maintainer": "LVGL",
+        "hostOperatingsystem": [
+            "Linux",
+            "Windows",
+            "MacOS"
+        ],
+        "environment": [
+            "e2 studio",
+            "GCC"
+        ],
+        "hardware": {
+            "chipVendor": "Renesas",
+            "manufaturer": "Renesas",
+            "specs": {
+                "MCU": "R7FA8D1BHECBD (Cortex-M85, 480MHz)",
+                "RAM": "1MB internal, 64MB external SDRAM",
+                "Flash": "2MB internal, 64MB External Octo-SPI Flash",
+                "GPU": "Dave2D",
+                "Resolution": "480x854",
+                "Display Size": "4.5\u201d",
+                "Interface": "2-lane MIPI",
+                "Color Depth": "24-bit",
+                "Technology": "IPS",
+                "DPI": "217 px/inch",
+                "Touch Pad": "Capacitive"
+            }
+        },
+        "description": "The EK-RA8D1 evaluation kit enables users to effortlessly evaluate the features of the RA8D1 MCU Group and develop embedded systems applications using Renesas\u2019 Flexible Software Package (FSP) and e2 studio IDE. Utilize rich on-board features along with your choice of popular ecosystem add-ons to bring your big ideas to life.  The MCU has a Cortex-M85 core which utilizes the Helium (SIMD) instruction set of Arm. Besides that the chip is equipped with a GPU (called DAVE2D) to off load the MCU.",
+        "settings": [
+            {
+                "type": "dropdown",
+                "label": "Rendering mode",
+                "options": [
+                    {
+                        "name": "Partial",
+                        "help": "Faster rendering but with tearing",
+                        "value": "0"
+                    },
+                    {
+                        "name": "Direct",
+                        "help": "Slower but tearing free",
+                        "value": "1",
+                        "default": "true"
+                    }
+                ],
+                "actions": [
+                    {
+                        "toReplace": "#define DIRECT_MODE \\d+",
+                        "newContent": "#define DIRECT_MODE {value}",
+                        "filePath": "src/board_init.c"
+                    }
+                ]
+            },
+            {
+                "type": "checkbox",
+                "label": "Use Dave2D GPU",
+                "actions": [
+                    {
+                        "toReplace": "#define LV_USE_DRAW_DAVE2D .*",
+                        "newContent": "#define LV_USE_DRAW_DAVE2D {value}",
+                        "filePath": "src/lv_conf.h"
+                    }
+                ]
+            },
+            {
+                "type": "checkbox",
+                "label": "Show performance monitor",
+                "actions": [
+                    {
+                        "toReplace": "#define LV_USE_PERF_MONITOR .*",
+                        "newContent": "#define LV_USE_PERF_MONITOR {value}",
+                        "filePath": "src/lv_conf.h"
+                    }
+                ]
+            }
+        ]
+    }
+]

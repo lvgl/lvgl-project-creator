@@ -1,0 +1,56 @@
+name: Run JSON Concatenation Script and Commit Result
+
+# Controls when the workflow will run
+on:
+  schedule:
+    # Runs at 00:00 and 12:00 UTC every day
+    - cron: '0 0,12 * * *'
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# The jobs that will run
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Check out the repository containing the script
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      # Set up Python
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'  # Specify your Python version
+
+      # Install required dependencies
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      # Run the Python script
+      - name: Run the JSON concatenation script
+        run: python build_manifest_all.py
+
+      # Configure Git
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      # Commit the changes if there are any
+      - name: Commit changes
+        run: |
+          git add manifest_all.json
+          git diff-index --quiet HEAD || git commit -m "Update manifest_all.json"
+
+      # Push changes back to the repository
+      - name: Push changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git push
+
