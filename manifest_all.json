@@ -52,17 +52,28 @@
                 ]
             },
             {
-                "type": "checkbox",
+                "type": "dropdown",
                 "label": "Show performance monitor",
+                "options": [
+                    {
+                        "name": "Yes",
+                        "value": "1",
+                        "default": "true"
+                    },
+                    {
+                        "name": "No",
+                        "value": "0"
+                    }
+                ],
                 "actions": [
                     {
-                        "ifValue": "true",
+                        "ifValue": "1",
                         "toReplace": "CONFIG_LV_USE_PERF_MONITOR=.+",
                         "newContent": "CONFIG_LV_USE_PERF_MONITOR=y",
                         "filePath": "sdkconfig.defaults"
                     },
                     {
-                        "ifValue": "false",
+                        "ifValue": "0",
                         "toReplace": "CONFIG_LV_USE_PERF_MONITOR=.+",
                         "newContent": "CONFIG_LV_USE_PERF_MONITOR=n",
                         "filePath": "sdkconfig.defaults"
@@ -129,8 +140,19 @@
                 ]
             },
             {
-                "type": "checkbox",
+                "type": "dropdown",
                 "label": "Show performance monitor",
+                "options": [
+                    {
+                        "name": "Yes",
+                        "value": "1",
+                        "default": "true"
+                    },
+                    {
+                        "name": "No",
+                        "value": "0"
+                    }
+                ],
                 "actions": [
                     {
                         "toReplace": "#define LV_USE_PERF_MONITOR .*",
@@ -140,6 +162,23 @@
                 ]
             },
             {
+                "type": "dropdown",
+                "label": "Select display driver",
+                "options": [
+                    {
+                        "name": "Linux frame buffer device",
+                        "value": "0",
+                        "default": "true"
+                    },
+                    {
+                        "name": "DRM",
+                        "value": "1"
+                    },
+                    {
+                        "name": "SDL",
+                        "value": "2"
+                    }
+                ],
                 "actions": [
                     {
                         "ifValue": "0",
@@ -203,8 +242,19 @@
                 ]
             },
             {
-                "type": "checkbox",
+                "type": "dropdown",
                 "label": "Show performance monitor",
+                "options": [
+                    {
+                        "name": "Yes",
+                        "value": "1",
+                        "default": "true"
+                    },
+                    {
+                        "name": "No",
+                        "value": "0"
+                    }
+                ],
                 "actions": [
                     {
                         "toReplace": "#define LV_USE_PERF_MONITOR .*",
@@ -255,8 +305,19 @@
                 ]
             },
             {
-                "type": "checkbox",
+                "type": "dropdown",
                 "label": "Show performance monitor",
+                "options": [
+                    {
+                        "name": "Yes",
+                        "value": "1",
+                        "default": "true"
+                    },
+                    {
+                        "name": "No",
+                        "value": "0"
+                    }
+                ],
                 "actions": [
                     {
                         "toReplace": "#define LV_USE_PERF_MONITOR .*",
@@ -323,8 +384,19 @@
                 ]
             },
             {
-                "type": "checkbox",
+                "type": "dropdown",
                 "label": "Use Dave2D GPU",
+                "options": [
+                    {
+                        "name": "Yes",
+                        "value": "1"
+                    },
+                    {
+                        "name": "No",
+                        "value": "0",
+                        "default": "true"
+                    }
+                ],
                 "actions": [
                     {
                         "toReplace": "#define LV_USE_DRAW_DAVE2D .*",
@@ -334,8 +406,19 @@
                 ]
             },
             {
-                "type": "checkbox",
+                "type": "dropdown",
                 "label": "Show performance monitor",
+                "options": [
+                    {
+                        "name": "Yes",
+                        "value": "1",
+                        "default": "true"
+                    },
+                    {
+                        "name": "No",
+                        "value": "0"
+                    }
+                ],
                 "actions": [
                     {
                         "toReplace": "#define LV_USE_PERF_MONITOR .*",
