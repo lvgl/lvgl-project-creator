@@ -28,6 +28,12 @@
             }
         },
         "description": "ESP32-S3-LCD-EV-Board is a development board for evaluating and verifying ESP32-S3 screen interactive applications. It has the functions of touch screen interaction and voice interaction.",
+        "shortDescription": "Powerful ESP32-S3 based development board supporting various displays.",
+        "urlToClone": "https://github.com/lvgl/lv_port_espressif_esp32-s3-lcd-ev-board",
+        "logo": "https://raw.githubusercontent.com/lvgl-private/project_creator_data/master/meta/images/espressif/logo.svg",
+        "branches": [
+            "release/v9.2"
+        ],
         "settings": [
             {
                 "type": "dropdown",
@@ -86,15 +92,21 @@
         "name": "LVGL on top of Linux graphics stack",
         "maintainer": "LVGL",
         "hostOperatingsystem": [
-            "Linux",
-            "Windows",
-            "MacOS"
+            "Linux"
         ],
         "environment": [
-            "VSCode",
-            "SDL"
+            "Cmake",
+            "SDL",
+            "DRM",
+            "Linux"
         ],
         "description": "Example project to use LVGL on top of Linux graphics stack. Currently supported backends are either legacy framebuffer (fbdev), modern DRM/KMS, or SDL2.",
+        "shortDescription": "CMake project for Linux devices supporting various display drivers.",
+        "urlToClone": "https://github.com/lvgl/lv_port_linux",
+        "logo": "https://raw.githubusercontent.com/lvgl-private/project_creator_data/master/meta/images/linux/logo.svg",
+        "branches": [
+            "release/v9.2"
+        ],
         "settings": [
             {
                 "type": "dropdown",
@@ -214,7 +226,13 @@
             "Eclipse",
             "SDL"
         ],
-        "description": "The LVGL is written mainly for microcontrollers and embedded systems however you can run the library on your PC as well without any embedded hardware. The code written on PC can be simply copied when your are using an embedded system. The PC simulator is cross platform. Windows, Linux and OSX are supported, however on Windows it's easier to get started with a another simulator project. This project uses Eclipse CDT (as an IDE) and SDL =a low level driver library to open a window, and handle mouse, keyboard etc.)",
+        "description": "LVGL is written mainly for microcontrollers and embedded systems however you can run the library on your PC as well without any embedded hardware. The code written on PC can be simply copied when your are using an embedded system. The PC simulator is cross platform. Windows, Linux and OSX are supported, however on Windows it's easier to get started with a another simulator project. This project uses Eclipse CDT (as an IDE) and SDL =a low level driver library to open a window, and handle mouse, keyboard etc.)",
+        "shortDescription": "Eclipse-based project to run LVGL on PC.",
+        "urlToClone": "https://github.com/lvgl/lv_port_pc_eclipse",
+        "logo": "https://raw.githubusercontent.com/lvgl-private/project_creator_data/master/meta/images/eclipse/logo.svg",
+        "branches": [
+            "release/v9.2"
+        ],
         "settings": [
             {
                 "type": "dropdown",
@@ -277,7 +295,13 @@
             "VSCode",
             "SDL"
         ],
-        "description": "The LVGL is written mainly for microcontrollers and embedded systems, however you can run the library on your PC as well without any embedded hardware. The code written on PC can be simply copied when your are using an embedded system. The project can use SDL but it can be easily relaced by any other built-in LVGL dirvers.",
+        "description": "LVGL is written mainly for microcontrollers and embedded systems, however you can run the library on your PC as well without any embedded hardware. The code written on PC can be simply copied when you are using an embedded system. The project can use SDL but it can be easily replaced by any other built-in LVGL drivers.",
+        "shortDescription": "VSCode-based project to run LVGL on PC.",
+        "urlToClone": "https://github.com/lvgl/lv_port_pc_vscode",
+        "logo": "https://raw.githubusercontent.com/lvgl-private/project_creator_data/master/meta/images/vscode/logo.svg",
+        "branches": [
+            "release/v9.2"
+        ],
         "settings": [
             {
                 "type": "dropdown",
@@ -358,6 +382,12 @@
             }
         },
         "description": "The EK-RA8D1 evaluation kit enables users to effortlessly evaluate the features of the RA8D1 MCU Group and develop embedded systems applications using Renesas\u2019 Flexible Software Package (FSP) and e2 studio IDE. Utilize rich on-board features along with your choice of popular ecosystem add-ons to bring your big ideas to life.  The MCU has a Cortex-M85 core which utilizes the Helium (SIMD) instruction set of Arm. Besides that the chip is equipped with a GPU (called DAVE2D) to off load the MCU.",
+        "shortDescription": "Cortex-M85 based 480 MHz MCU driving a 480x854 display.",
+        "urlToClone": "https://github.com/lvgl/lv_port_renesas_ek-ra8d1_gcc",
+        "logo": "https://raw.githubusercontent.com/lvgl-private/project_creator_data/master/meta/images/renesas/logo.svg",
+        "branches": [
+            "release/v9.2"
+        ],
         "settings": [
             {
                 "type": "dropdown",
