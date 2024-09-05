@@ -20,6 +20,7 @@ with open('manifests', 'r') as file:
 for url in urls:
     url = url.strip()  # Remove any extra whitespace or newlines
     if url:  # Ensure the URL is not empty
+        print(f"Fetching {url}")
         json_data = fetch_json(url)
         all_json_data.append(json_data)
 
