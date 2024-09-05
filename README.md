@@ -1,5 +1,6 @@
 # Project creator
-Kickstart your LVGL projects with ease!
+
+### Kickstart your LVGL projects with ease!
 
 Accelerate your LVGL development with the Project Creator. Select, configure, and launch your projects in just a few clicks. It works on Windows, Linux, Mac and in VSCode too. More projects are coming soon! 🚀
 
