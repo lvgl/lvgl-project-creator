@@ -12,7 +12,7 @@
         ],
         "hardware": {
             "chipVendor": "Espressif",
-            "manufaturer": "Espressif",
+            "manufacturer": "Espressif",
             "specs": {
                 "MCU": "ESP32-S3",
                 "RAM": "512 KB internal SRAM, 8/16 MB external PSRAM",
@@ -366,7 +366,7 @@
         ],
         "hardware": {
             "chipVendor": "Renesas",
-            "manufaturer": "Renesas",
+            "manufacturer": "Renesas",
             "specs": {
                 "MCU": "R7FA8D1BHECBD (Cortex-M85, 480MHz)",
                 "RAM": "1MB internal, 64MB external SDRAM",
