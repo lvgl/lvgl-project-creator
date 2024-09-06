@@ -24,7 +24,7 @@ Yes, we have started working on adding the LVGL projects from the major chip ven
 You can’t at this moment. We added projects for which we know that they will be maintained either by us or by a mature project or vendor. However if you would like to see a specific board or project, contact us, and we will also contact the related manufacturer or maintainer.
 
 ### How can I give feedback and ask for help?
-Please use the Project Creator category on our Forum.
+Please use the [Project Creator](https://forum.lvgl.io/c/project-creator) category on our Forum.
 
 ### Is this tool open source?
 Not yet, but we are considering making it open-source in the near future.
