@@ -89,13 +89,13 @@
         ]
     },
     {
-        "name": "LVGL on top of Linux graphics stack",
+        "name": "LVGL on Linux",
         "maintainer": "LVGL",
         "hostOperatingsystem": [
             "Linux"
         ],
         "environment": [
-            "Cmake",
+            "CMake",
             "SDL",
             "DRM",
             "Linux"
