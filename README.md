@@ -4,6 +4,9 @@
 
 Accelerate your LVGL development with the Project Creator. Select, configure, and launch your projects in just a few clicks. It works on Windows, Linux, Mac and in VSCode too. More projects are coming soon! 🚀
 
+![Untitled](https://github.com/user-attachments/assets/84871ddb-d096-4f69-a587-63a672bd7658)
+
+
 ## Features
 ### Just works
 Works on any OS, and in VSCode without git or any other extra tools.
