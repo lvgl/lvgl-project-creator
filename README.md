@@ -18,6 +18,16 @@ Pre-packaged with LVGL, it saves you time by skipping repetitive downloads.
 ### Tailor to your needs
 Customize your project’s initial setup through an intuitive and user-friendly interface.
 
+
+## Technical overview
+
+### List of projects and project properties
+
+- There are `manifest.json` files in some repos
+- We collect the URL of these manifests [here](https://github.com/lvgl/lvgl-project-creator/blob/master/manifests)
+- [This script](https://github.com/lvgl/lvgl-project-creator/blob/master/build_manifest_all.py) concatenates the manifests in [manifest_all.json](https://github.com/lvgl/lvgl-project-creator/blob/master/manifest_all.json)
+- `manifest_all.json` is loaded into the project creator app
+
 ## Frequently Asked Questions
 
 ### Will you add more projects?
