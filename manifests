@@ -3,4 +3,6 @@ https://raw.githubusercontent.com/lvgl/lv_port_linux/master/manifest.json
 https://raw.githubusercontent.com/lvgl/lv_port_pc_eclipse/master/manifest.json
 https://raw.githubusercontent.com/lvgl/lv_port_pc_vscode/master/manifest.json
 https://raw.githubusercontent.com/lvgl/lv_port_renesas_ek-ra8d1/master/manifest.json
+https://raw.githubusercontent.com/lvgl/lv_nuttx/master/manifests/sim.json
+https://raw.githubusercontent.com/lvgl/lv_nuttx/master/manifests/esp32s3-lcd-ev.json
 

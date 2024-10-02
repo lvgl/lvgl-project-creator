@@ -86,7 +86,7 @@ schema_individual = {
                         }
                     }
                 },
-                "required": ["type", "label", "options"]
+                "required": ["type"]
             }
         }
     },
