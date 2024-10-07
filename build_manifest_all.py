@@ -141,7 +141,7 @@ print("Validating the concatenated JSON")
 valid = validate_json(all_json_data, schema_whole)
 if valid:
     # Save the concatenated JSON data to a new file
-    with open('manifest_all.json', 'w') as outfile:
+    with open('manifest_all_v1_1.json', 'w') as outfile:
         json.dump(all_json_data, outfile, indent=4)
 
     print("All JSON data has been concatenated and saved to 'manifest_all.json'.")
