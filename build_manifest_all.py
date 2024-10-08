@@ -45,7 +45,10 @@ schema_individual = {
         "description": {"type": "string"},
         "shortDescription": {"type": "string"},
         "urlToClone": {"type": "string"},
-        "logo": {"type": "string"},
+        "logo": {
+            "type": "array",
+            "items": {"type": "string"}
+        },
         "branches": {
             "type": "array",
             "items": {"type": "string"}
@@ -139,11 +142,12 @@ for url in urls:
 
 print("Validating the concatenated JSON")
 valid = validate_json(all_json_data, schema_whole)
+filename = "manifest_all_v1.1.0.json"
 if valid:
     # Save the concatenated JSON data to a new file
-    with open('manifest_all_v1.1.0.json', 'w') as outfile:
+    with open(filename, 'w') as outfile:
         json.dump(all_json_data, outfile, indent=4)
 
-    print("All JSON data has been concatenated and saved to 'manifest_all.json'.")
+    print(f"All JSON data has been concatenated and saved to {filename}.")
 else:
     print("Error: the concatenated JSON is invalid") 
