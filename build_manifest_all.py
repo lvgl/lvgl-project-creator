@@ -45,7 +45,7 @@ schema_individual = {
         "description": {"type": "string"},
         "shortDescription": {"type": "string"},
         "urlToClone": {"type": "string"},
-        "logo": {
+        "logos": {
             "type": "array",
             "items": {"type": "string"}
         },
@@ -90,7 +90,7 @@ schema_individual = {
             }
         }
     },
-    "required": ["name", "maintainer", "hostOperatingsystem", "environment", "description", "shortDescription", "urlToClone", "logo", "branches", "settings"]
+    "required": ["name", "maintainer", "hostOperatingsystem", "environment", "description", "shortDescription", "urlToClone", "logos", "branches", "settings"]
 }
 
 schema_whole = {

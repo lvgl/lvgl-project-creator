@@ -30,7 +30,7 @@
         "description": "ESP32-S3-LCD-EV-Board is a development board for evaluating and verifying ESP32-S3 screen interactive applications. It has the functions of touch screen interaction and voice interaction.",
         "shortDescription": "Powerful ESP32-S3 based development board supporting various displays.",
         "urlToClone": "https://github.com/lvgl/lv_port_espressif_esp32-s3-lcd-ev-board",
-        "logo": [
+        "logos": [
             "https://raw.githubusercontent.com/lvgl/project-creator/master/meta/images/espressif/logo.svg"
         ],
         "branches": [
@@ -105,7 +105,7 @@
         "description": "Example project to use LVGL on top of Linux graphics stack. Currently supported backends are either legacy framebuffer (fbdev), modern DRM/KMS, or SDL2.",
         "shortDescription": "CMake project for Linux devices supporting various display drivers.",
         "urlToClone": "https://github.com/lvgl/lv_port_linux",
-        "logo": [
+        "logos": [
             "https://raw.githubusercontent.com/lvgl/project-creator/master/meta/images/linux/logo.svg"
         ],
         "branches": [
@@ -215,7 +215,7 @@
         "description": "LVGL is written mainly for microcontrollers and embedded systems however you can run the library on your PC as well without any embedded hardware. The code written on PC can be simply copied when your are using an embedded system. The PC simulator is cross platform. Windows, Linux and OSX are supported, however on Windows it's easier to get started with a another simulator project. This project uses Eclipse CDT (as an IDE) and SDL =a low level driver library to open a window, and handle mouse, keyboard etc.)",
         "shortDescription": "Eclipse-based project to run LVGL on PC.",
         "urlToClone": "https://github.com/lvgl/lv_port_pc_eclipse",
-        "logo": [
+        "logos": [
             "https://raw.githubusercontent.com/lvgl/project-creator/master/meta/images/eclipse/logo.svg"
         ],
         "branches": [
@@ -286,7 +286,7 @@
         "description": "LVGL is written mainly for microcontrollers and embedded systems, however you can run the library on your PC as well without any embedded hardware. The code written on PC can be simply copied when you are using an embedded system. The project can use SDL but it can be easily replaced by any other built-in LVGL drivers.",
         "shortDescription": "VSCode-based project to run LVGL on PC.",
         "urlToClone": "https://github.com/lvgl/lv_port_pc_vscode",
-        "logo": [
+        "logos": [
             "https://raw.githubusercontent.com/lvgl/project-creator/master/meta/images/vscode/logo.svg"
         ],
         "branches": [
@@ -374,7 +374,7 @@
         "description": "The EK-RA8D1 evaluation kit enables users to effortlessly evaluate the features of the RA8D1 MCU Group and develop embedded systems applications using Renesas\u2019 Flexible Software Package (FSP) and e2 studio IDE. Utilize rich on-board features along with your choice of popular ecosystem add-ons to bring your big ideas to life.  The MCU has a Cortex-M85 core which utilizes the Helium (SIMD) instruction set of Arm. Besides that the chip is equipped with a GPU (called DAVE2D) to off load the MCU.",
         "shortDescription": "Cortex-M85 based 480 MHz MCU driving a 480x854 display.",
         "urlToClone": "https://github.com/lvgl/lv_port_renesas_ek-ra8d1_gcc",
-        "logo": [
+        "logos": [
             "https://raw.githubusercontent.com/lvgl/project-creator/master/meta/images/renesas/logo.svg"
         ],
         "branches": [
@@ -446,6 +446,109 @@
                         "toReplace": "#define LV_USE_PERF_MONITOR .*",
                         "newContent": "#define LV_USE_PERF_MONITOR {value}",
                         "filePath": "src/lv_conf.h"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "NuttX Simulator",
+        "maintainer": "NuttX",
+        "hostOperatingsystem": [
+            "Linux"
+        ],
+        "environment": [
+            "make",
+            "X11",
+            "Linux"
+        ],
+        "description": "NuttX Simulator description",
+        "shortDescription": "NuttX Simulator short description",
+        "urlToClone": "https://github.com/liamHowatt/lv_nuttx.git",
+        "logos": [
+            "https://raw.githubusercontent.com/lvgl/project-creator/master/meta/images/nuttx/logo.png"
+        ],
+        "branches": [
+            "release/v9.1"
+        ],
+        "getStartedInstructions": "Install the NuttX prerequisites and KConfig frontend https://nuttx.apache.org/docs/latest/quickstart/install.html \nAditionally, install `unzip`\nRun `./setup.sh`\nRun `cd nuttx/`\nRun `make nuttx`\nRun `./nuttx`",
+        "settings": [
+            {
+                "type": "always",
+                "actions": [
+                    {
+                        "toReplace": "yes '' \\| make oldconfig",
+                        "newContent": "kconfig-tweak --set-str CONFIG_INIT_ENTRYPOINT my_lvgl_app_main\nyes '' | make oldconfig",
+                        "filePath": "setup.sh"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "NuttX esp32s3-lcd-ev",
+        "maintainer": "NuttX",
+        "hostOperatingsystem": [
+            "Linux"
+        ],
+        "environment": [
+            "make",
+            "Linux"
+        ],
+        "hardware": {
+            "chipVendor": "Espressif",
+            "manufacturer": "Espressif",
+            "specs": {
+                "MCU": "ESP32-S3",
+                "RAM": "512 KB internal SRAM, 8/16 MB external PSRAM",
+                "Flash": "2/4/8/16 MB",
+                "GPU": "None",
+                "Resolution": "800x480 / 480x480",
+                "Display Size": "4.3\u201d / 3.95\u201d",
+                "Interface": "RGB LCD",
+                "Color Depth": "24-bit",
+                "Technology": "IPS",
+                "DPI": "216 px/inch / 171 px/inch",
+                "Touch Pad": "Capacitive (GT1151/FT5x06)"
+            }
+        },
+        "description": "NuttX esp32s3-lcd-ev description",
+        "shortDescription": "NuttX esp32s3-lcd-ev short description",
+        "urlToClone": "https://github.com/liamHowatt/lv_nuttx.git",
+        "logos": [
+            "https://raw.githubusercontent.com/lvgl/project-creator/master/meta/images/nuttx/logo.png"
+        ],
+        "branches": [
+            "release/v9.1"
+        ],
+        "getStartedInstructions": "Install the NuttX prerequisites and KConfig frontend https://nuttx.apache.org/docs/latest/quickstart/install.html \nAditionally, install `unzip`\nRun `./setup.sh`\nRun `cd nuttx/`\nRun `make nuttx`\nRun `make flash ESPTOOL_PORT=/dev/ttyACM0 ESPTOOL_BINDIR=./`",
+        "settings": [
+            {
+                "type": "always",
+                "actions": [
+                    {
+                        "toReplace": "\\./tools/configure\\.sh -l sim:lvgl_fb",
+                        "newContent": "./tools/configure.sh -l esp32s3-lcd-ev:lvgl",
+                        "filePath": "setup.sh"
+                    }
+                ]
+            },
+            {
+                "type": "dropdown",
+                "label": "Model",
+                "options": [
+                    {
+                        "name": "v1.5, 480x480",
+                        "value": "0",
+                        "default": "true"
+                    }
+                ],
+                "actions": [
+                    {
+                        "ifValue": "0",
+                        "toReplace": "yes '' \\| make oldconfig",
+                        "newContent": "kconfig-tweak --set-val CONFIG_ESP32S3_I2C0_SCLPIN 48\nkconfig-tweak --set-val CONFIG_ESP32S3_I2C0_SDAPIN 47\nkconfig-tweak --set-val CONFIG_ESP32S3_LCD_DATA6_PIN 8\nkconfig-tweak --set-val CONFIG_ESP32S3_LCD_DATA7_PIN 18\nyes '' | make oldconfig",
+                        "filePath": "setup.sh"
                     }
                 ]
             }
