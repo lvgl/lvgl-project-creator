@@ -475,6 +475,7 @@
         "settings": [
             {
                 "type": "always",
+                "label": "set the entrypoint app",
                 "actions": [
                     {
                         "toReplace": "yes '' \\| make oldconfig",
@@ -525,6 +526,7 @@
         "settings": [
             {
                 "type": "always",
+                "label": "set the defconfig",
                 "actions": [
                     {
                         "toReplace": "\\./tools/configure\\.sh -l sim:lvgl_fb",
