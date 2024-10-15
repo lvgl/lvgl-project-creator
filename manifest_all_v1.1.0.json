@@ -462,8 +462,8 @@
             "X11",
             "Linux"
         ],
-        "description": "NuttX Simulator description",
-        "shortDescription": "NuttX Simulator short description",
+        "description": "NuttX is a highly configurable RTOS that implements many POSIX standard interfaces for a familliar development experience and well defined boundaries between components. This option creates a NuttX project based on the NuttX LVGL defconfig for the simulator and a basic directory structure for your custom LVGL app. This project runs locally and opens an X11 window to display your LVGL app.",
+        "shortDescription": "NuttX RTOS simulator project for X11 on Linux",
         "urlToClone": "https://github.com/liamHowatt/lv_nuttx.git",
         "logos": [
             "https://raw.githubusercontent.com/lvgl/project-creator/master/meta/images/nuttx/logo.svg"
@@ -471,7 +471,7 @@
         "branches": [
             "release/v9.1"
         ],
-        "getStartedInstructions": "Install the NuttX prerequisites and KConfig frontend https://nuttx.apache.org/docs/latest/quickstart/install.html \nAditionally, install `unzip`\nRun `./setup.sh`\nRun `cd nuttx/`\nRun `make nuttx`\nRun `./nuttx`",
+        "getStartedInstructions": "1. Install the NuttX prerequisites and KConfig frontend: `https://nuttx.apache.org/docs/latest/quickstart/install.html`.\n2. Aditionally, install `unzip`.\n3. Run `./setup.sh`.\n4. Run `cd nuttx/`.\n5. Run `make nuttx`.\n6. Run `./nuttx`.\n",
         "settings": [
             {
                 "type": "always",
@@ -512,8 +512,8 @@
                 "Touch Pad": "Capacitive (GT1151/FT5x06)"
             }
         },
-        "description": "NuttX esp32s3-lcd-ev description",
-        "shortDescription": "NuttX esp32s3-lcd-ev short description",
+        "description": "NuttX is a highly configurable RTOS that implements many POSIX standard interfaces for a familliar development experience and well defined boundaries between components. Espressif esp32s3-lcd-ev is a devboard with a touchscreen based on the esp32s3. This option creates a NuttX project for the Espressif esp32s3-lcd-ev based on the NuttX LVGL defconfig for esp32se-lcd-ev and a basic directory structure for your custom LVGL app.",
+        "shortDescription": "NuttX RTOS project for esp32s3-lcd-ev board with LVGL",
         "urlToClone": "https://github.com/liamHowatt/lv_nuttx.git",
         "logos": [
             "https://raw.githubusercontent.com/lvgl/project-creator/master/meta/images/nuttx/logo.svg"
@@ -521,7 +521,7 @@
         "branches": [
             "release/v9.1"
         ],
-        "getStartedInstructions": "Install the NuttX prerequisites and KConfig frontend https://nuttx.apache.org/docs/latest/quickstart/install.html \nAditionally, install `unzip`\nRun `./setup.sh`\nRun `cd nuttx/`\nRun `make nuttx`\nRun `make flash ESPTOOL_PORT=/dev/ttyACM0 ESPTOOL_BINDIR=./`",
+        "getStartedInstructions": "1. Install the NuttX prerequisites and KConfig frontend: `https://nuttx.apache.org/docs/latest/quickstart/install.html`.\n2. Aditionally, install `unzip`.\n3. Run `./setup.sh`.\n4. Run `cd nuttx/`.\n5. Run `make nuttx`.\n6. Run `make flash ESPTOOL_PORT=/dev/ttyACM0 ESPTOOL_BINDIR=./`\n",
         "settings": [
             {
                 "type": "always",
