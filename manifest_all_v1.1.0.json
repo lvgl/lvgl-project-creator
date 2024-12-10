@@ -543,5 +543,414 @@
                 ]
             }
         ]
+    },
+    {
+        "name": "NuttX ESP32-S3-BOX-3",
+        "maintainer": "NuttX",
+        "hostOperatingsystem": [
+            "Linux"
+        ],
+        "environment": [
+            "make",
+            "Linux"
+        ],
+        "hardware": {
+            "chipVendor": "Espressif",
+            "manufacturer": "Espressif",
+            "specs": {
+                "MCU": "ESP32-S3",
+                "RAM": "512 KB internal SRAM, 16 MB external PSRAM",
+                "Flash": "16 MB",
+                "GPU": "None",
+                "Resolution": "320x240",
+                "Display Size": "2.4\u201d",
+                "Interface": "SPI 40 MHz",
+                "Color Depth": "16-bit",
+                "Technology": "LCD (ILI9341)",
+                "DPI": "167 px/inch",
+                "Touch Pad": "Capacitive (GT911)"
+            }
+        },
+        "description": "NuttX is a highly configurable RTOS that implements many POSIX standard interfaces for a familliar development experience and well defined boundaries between components. The Espressif ESP32-S3-BOX-3 is an AIoT kit based on the ESP32-S3. This option creates a NuttX project for the Espressif ESP32-S3-BOX-3 based on the NuttX LVGL defconfig for esp32s3-box and a basic directory structure for your custom LVGL app.",
+        "shortDescription": "NuttX RTOS project for ESP32-S3-BOX-3 with LVGL",
+        "urlToClone": "https://github.com/lvgl/lv_nuttx.git",
+        "logos": [
+            "https://raw.githubusercontent.com/lvgl/project-creator/master/meta/images/nuttx/logo.svg"
+        ],
+        "branches": [
+            "release/v9.2"
+        ],
+        "getStartedInstructions": "1. Install the NuttX prerequisites and KConfig frontend: `https://nuttx.apache.org/docs/latest/quickstart/install.html`.\n2. Aditionally, install `unzip`.\n3. Install the ESP32-S3 Toolchain: `https://nuttx.apache.org/docs/latest/platforms/xtensa/esp32s3/index.html#esp32-s3-toolchain`.\n4. Run `./setup.sh`.\n5. Run `cd nuttx/`.\n6. Run `make -j$(nproc)`.\n7. Run `make -j$(nproc) flash ESPTOOL_PORT=<port> ESPTOOL_BINDIR=./`",
+        "settings": [
+            {
+                "type": "always",
+                "label": "set the defconfig, patch files, and set additional configurations",
+                "actions": [
+                    {
+                        "toReplace": "\\./tools/configure\\.sh -l sim:lvgl_fb",
+                        "newContent": "echo -e '\\nCFLAGS += -DLV_COLOR_16_SWAP' >> ../apps/graphics/lvgl/Makefile\nmkdir -p boards/xtensa/esp32s3/esp32s3-box/src/etc/init.d/\ntouch boards/xtensa/esp32s3/esp32s3-box/src/etc/init.d/rcS\necho -e '\\nmy_lvgl_app &' >> boards/xtensa/esp32s3/esp32s3-box/src/etc/init.d/rc.sysinit\necho -e '\\nRCSRCS = etc/init.d/rc.sysinit etc/init.d/rcS' >> boards/xtensa/esp32s3/esp32s3-box/src/Make.defs\n./tools/configure.sh -l esp32s3-box:lvgl-3\nkconfig-tweak --enable CONFIG_FS_ROMFS\nkconfig-tweak --enable CONFIG_ETC_ROMFS",
+                        "filePath": "setup.sh"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "NuttX ESP-WROVER-KIT",
+        "maintainer": "NuttX",
+        "hostOperatingsystem": [
+            "Linux"
+        ],
+        "environment": [
+            "make",
+            "Linux"
+        ],
+        "hardware": {
+            "chipVendor": "Espressif",
+            "manufacturer": "Espressif",
+            "specs": {
+                "MCU": "ESP32",
+                "RAM": "520 KB internal SRAM, 4 MB external PSRAM",
+                "Flash": "16 MB",
+                "GPU": "None",
+                "Resolution": "320x240",
+                "Display Size": "3.2\u201d",
+                "Interface": "SPI",
+                "Color Depth": "16-bit",
+                "Technology": "LCD",
+                "DPI": "125 px/inch",
+                "Touch Pad": "None"
+            }
+        },
+        "description": "NuttX is a highly configurable RTOS that implements many POSIX standard interfaces for a familliar development experience and well defined boundaries between components. The Espressif ESP-WROVER-KIT is a devboard based on the ESP32. This option creates a NuttX project for the Espressif ESP-WROVER-KIT based on the NuttX LVGL defconfig for esp32-wrover-kit and a basic directory structure for your custom LVGL app.",
+        "shortDescription": "NuttX RTOS project for ESP-WROVER-KIT with LVGL",
+        "urlToClone": "https://github.com/lvgl/lv_nuttx.git",
+        "logos": [
+            "https://raw.githubusercontent.com/lvgl/project-creator/master/meta/images/nuttx/logo.svg"
+        ],
+        "branches": [
+            "release/v9.2"
+        ],
+        "getStartedInstructions": "1. Install the NuttX prerequisites and KConfig frontend: `https://nuttx.apache.org/docs/latest/quickstart/install.html`.\n2. Aditionally, install `unzip`.\n3. Install the ESP32 Toolchain: `https://nuttx.apache.org/docs/latest/platforms/xtensa/esp32/index.html#esp32-toolchain`.\n4. Run `./setup.sh`.\n5. Run `cd nuttx/`.\n6. Run `make -j$(nproc)`.\n7. Run `make -j$(nproc) flash ESPTOOL_PORT=<port> ESPTOOL_BINDIR=./`",
+        "settings": [
+            {
+                "type": "always",
+                "label": "set the defconfig, patch files, and set additional configurations",
+                "actions": [
+                    {
+                        "toReplace": "\\./tools/configure\\.sh -l sim:lvgl_fb",
+                        "newContent": "./tools/configure.sh -l esp32-wrover-kit:lvgl",
+                        "filePath": "setup.sh"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "NuttX MIMXRT1060-EVK",
+        "maintainer": "NuttX",
+        "hostOperatingsystem": [
+            "Linux"
+        ],
+        "environment": [
+            "make",
+            "Linux"
+        ],
+        "hardware": {
+            "chipVendor": "NXP",
+            "manufacturer": "NXP",
+            "specs": {
+                "MCU": "i.MX RT1060",
+                "RAM": "256 MB SRAM",
+                "Flash": "512+64 MB",
+                "GPU": "None",
+                "Resolution": "480x272",
+                "Display Size": "4.3\u201d",
+                "Interface": "RGB parallel",
+                "Color Depth": "24-bit",
+                "Technology": "LCD",
+                "DPI": "128 px/inch",
+                "Touch Pad": "Capacitive"
+            }
+        },
+        "description": "NuttX is a highly configurable RTOS that implements many POSIX standard interfaces for a familliar development experience and well defined boundaries between components. The NXP MIMXRT1060-EVK is a devboard with an optional touchscreen. This option creates a NuttX project for the MIMXRT1060-EVK based on the NuttX LVGL defconfig for mimxrt1060-evk and a basic directory structure for your custom LVGL app.",
+        "shortDescription": "NuttX RTOS project for MIMXRT1060-EVK with LVGL",
+        "urlToClone": "https://github.com/lvgl/lv_nuttx.git",
+        "logos": [
+            "https://raw.githubusercontent.com/lvgl/project-creator/master/meta/images/nuttx/logo.svg"
+        ],
+        "branches": [
+            "release/v9.2"
+        ],
+        "getStartedInstructions": "1. Install the NuttX prerequisites and KConfig frontend: `https://nuttx.apache.org/docs/latest/quickstart/install.html`.\n2. Aditionally, install `unzip`.\n3. Run `./setup.sh`.\n4. Run `cd nuttx/`.\n5. Run `make -j$(nproc)`.\n6. Refer to the docs for flashing and debugging info: `https://nuttx.apache.org/docs/latest/platforms/arm/imxrt/boards/imxrt1060-evk/index.html`.",
+        "settings": [
+            {
+                "type": "always",
+                "label": "set the defconfig",
+                "actions": [
+                    {
+                        "toReplace": "\\./tools/configure\\.sh -l sim:lvgl_fb",
+                        "newContent": "./tools/configure.sh -l mimxrt1060-evk:lvgl",
+                        "filePath": "setup.sh"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "NuttX MIMXRT1064-EVK",
+        "maintainer": "NuttX",
+        "hostOperatingsystem": [
+            "Linux"
+        ],
+        "environment": [
+            "make",
+            "Linux"
+        ],
+        "hardware": {
+            "chipVendor": "NXP",
+            "manufacturer": "NXP",
+            "specs": {
+                "MCU": "i.MX RT1064",
+                "RAM": "256 MB SRAM",
+                "Flash": "512+64 MB",
+                "GPU": "None",
+                "Resolution": "480x272",
+                "Display Size": "4.3\u201d",
+                "Interface": "RGB parallel",
+                "Color Depth": "24-bit",
+                "Technology": "LCD",
+                "DPI": "128 px/inch",
+                "Touch Pad": "Capacitive"
+            }
+        },
+        "description": "NuttX is a highly configurable RTOS that implements many POSIX standard interfaces for a familliar development experience and well defined boundaries between components. The NXP MIMXRT1064-EVK is a devboard with an optional touchscreen. This option creates a NuttX project for the MIMXRT1064-EVK based on the NuttX LVGL defconfig for mimxrt1064-evk and a basic directory structure for your custom LVGL app.",
+        "shortDescription": "NuttX RTOS project for MIMXRT1064-EVK with LVGL",
+        "urlToClone": "https://github.com/lvgl/lv_nuttx.git",
+        "logos": [
+            "https://raw.githubusercontent.com/lvgl/project-creator/master/meta/images/nuttx/logo.svg"
+        ],
+        "branches": [
+            "release/v9.2"
+        ],
+        "getStartedInstructions": "1. Install the NuttX prerequisites and KConfig frontend: `https://nuttx.apache.org/docs/latest/quickstart/install.html`.\n2. Aditionally, install `unzip`.\n3. Run `./setup.sh`.\n4. Run `cd nuttx/`.\n5. Run `make -j$(nproc)`.\n6. Refer to the docs for flashing and debugging info: `https://nuttx.apache.org/docs/latest/platforms/arm/imxrt/boards/imxrt1064-evk/index.html`.",
+        "settings": [
+            {
+                "type": "always",
+                "label": "set the defconfig",
+                "actions": [
+                    {
+                        "toReplace": "\\./tools/configure\\.sh -l sim:lvgl_fb",
+                        "newContent": "./tools/configure.sh -l mimxrt1064-evk:lvgl",
+                        "filePath": "setup.sh"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "NuttX STM32F429I-DISCO",
+        "maintainer": "NuttX",
+        "hostOperatingsystem": [
+            "Linux"
+        ],
+        "environment": [
+            "make",
+            "Linux"
+        ],
+        "hardware": {
+            "chipVendor": "STMicroelectronics",
+            "manufacturer": "STMicroelectronics",
+            "specs": {
+                "MCU": "STM32F429ZI",
+                "RAM": "256 KB internal SRAM, 8 MB external SDRAM",
+                "Flash": "2 MB",
+                "GPU": "Chrom-ART / DMA2D",
+                "Resolution": "240x320",
+                "Display Size": "2.4\u201d",
+                "Interface": "SPI",
+                "Color Depth": "16-bit",
+                "Technology": "QVGA TFT LCD",
+                "DPI": "167 px/inch",
+                "Touch Pad": "None"
+            }
+        },
+        "description": "NuttX is a highly configurable RTOS that implements many POSIX standard interfaces for a familliar development experience and well defined boundaries between components. The STM32F429I-DISCO is a devboard with a touchscreen based on the STM32F429ZI MCU. This option creates a NuttX project for the STM32F429I-DISCO based on the NuttX LVGL defconfig for stm32f429i-disco and a basic directory structure for your custom LVGL app.",
+        "shortDescription": "NuttX RTOS project for STM32F429I-DISCO with LVGL",
+        "urlToClone": "https://github.com/lvgl/lv_nuttx.git",
+        "logos": [
+            "https://raw.githubusercontent.com/lvgl/project-creator/master/meta/images/nuttx/logo.svg"
+        ],
+        "branches": [
+            "release/v9.2"
+        ],
+        "getStartedInstructions": "1. Install the NuttX prerequisites and KConfig frontend: `https://nuttx.apache.org/docs/latest/quickstart/install.html`.\n2. Aditionally, install `unzip`.\n3. Run `./setup.sh`.\n4. Run `cd nuttx/`.\n5. Run `make -j$(nproc)`.\n6. Refer to the docs for flashing and debugging info: `https://nuttx.apache.org/docs/latest/platforms/arm/stm32f4/index.html#flashing-and-debugging`.",
+        "settings": [
+            {
+                "type": "always",
+                "label": "set the defconfig",
+                "actions": [
+                    {
+                        "toReplace": "\\./tools/configure\\.sh -l sim:lvgl_fb",
+                        "newContent": "./tools/configure.sh -l stm32f429i-disco:lvgl",
+                        "filePath": "setup.sh"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "NuttX STM32F746G-DISCO",
+        "maintainer": "NuttX",
+        "hostOperatingsystem": [
+            "Linux"
+        ],
+        "environment": [
+            "make",
+            "Linux"
+        ],
+        "hardware": {
+            "chipVendor": "STMicroelectronics",
+            "manufacturer": "STMicroelectronics",
+            "specs": {
+                "MCU": "STM32F746NG",
+                "RAM": "340 KB internal SRAM, 8 MB external SDRAM",
+                "Flash": "1 MB",
+                "GPU": "Chrom-ART / DMA2D",
+                "Resolution": "480x272",
+                "Display Size": "4.3\u201d",
+                "Interface": "RGB parallel",
+                "Color Depth": "16-bit",
+                "Technology": "TFT LCD",
+                "DPI": "128 px/inch",
+                "Touch Pad": "Capacitive"
+            }
+        },
+        "description": "NuttX is a highly configurable RTOS that implements many POSIX standard interfaces for a familliar development experience and well defined boundaries between components. The STM32F746G-DISCO is a devboard with a touchscreen based on the STM32F746NG MCU. This option creates a NuttX project for the STM32F746G-DISCO based on the NuttX LVGL defconfig for stm32f746g-disco and a basic directory structure for your custom LVGL app.",
+        "shortDescription": "NuttX RTOS project for STM32F746G-DISCO with LVGL",
+        "urlToClone": "https://github.com/lvgl/lv_nuttx.git",
+        "logos": [
+            "https://raw.githubusercontent.com/lvgl/project-creator/master/meta/images/nuttx/logo.svg"
+        ],
+        "branches": [
+            "release/v9.2"
+        ],
+        "getStartedInstructions": "1. Install the NuttX prerequisites and KConfig frontend: `https://nuttx.apache.org/docs/latest/quickstart/install.html`.\n2. Aditionally, install `unzip`.\n3. Run `./setup.sh`.\n4. Run `cd nuttx/`.\n5. Run `make -j$(nproc)`.\n6. Refer to the docs for flashing and debugging info: `https://nuttx.apache.org/docs/latest/platforms/arm/stm32f7/index.html#flashing-and-debugging`.",
+        "settings": [
+            {
+                "type": "always",
+                "label": "set the defconfig",
+                "actions": [
+                    {
+                        "toReplace": "\\./tools/configure\\.sh -l sim:lvgl_fb",
+                        "newContent": "./tools/configure.sh -l stm32f746g-disco:lvgl",
+                        "filePath": "setup.sh"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "NuttX STM32H745I-DISCO",
+        "maintainer": "NuttX",
+        "hostOperatingsystem": [
+            "Linux"
+        ],
+        "environment": [
+            "make",
+            "Linux"
+        ],
+        "hardware": {
+            "chipVendor": "STMicroelectronics",
+            "manufacturer": "STMicroelectronics",
+            "specs": {
+                "MCU": "STM32H745XI",
+                "RAM": "1 MB internal SRAM, 8 MB external SDRAM",
+                "Flash": "2 MB",
+                "GPU": "Chrom-ART / DMA2D",
+                "Resolution": "480x272",
+                "Display Size": "4.3\u201d",
+                "Interface": "RGB parallel",
+                "Color Depth": "16-bit",
+                "Technology": "TFT LCD",
+                "DPI": "128 px/inch",
+                "Touch Pad": "Capacitive"
+            }
+        },
+        "description": "NuttX is a highly configurable RTOS that implements many POSIX standard interfaces for a familliar development experience and well defined boundaries between components. The STM32H745I-DISCO is a devboard with a touchscreen based on the STM32H745XI MCU. This option creates a NuttX project for the STM32H745I-DISCO based on the NuttX LVGL defconfig for stm32h745i-disco and a basic directory structure for your custom LVGL app.",
+        "shortDescription": "NuttX RTOS project for STM32H745I-DISCO with LVGL",
+        "urlToClone": "https://github.com/lvgl/lv_nuttx.git",
+        "logos": [
+            "https://raw.githubusercontent.com/lvgl/project-creator/master/meta/images/nuttx/logo.svg"
+        ],
+        "branches": [
+            "release/v9.2"
+        ],
+        "getStartedInstructions": "1. Install the NuttX prerequisites and KConfig frontend: `https://nuttx.apache.org/docs/latest/quickstart/install.html`.\n2. Aditionally, install `unzip`.\n3. Run `./setup.sh`.\n4. Run `cd nuttx/`.\n5. Run `make -j$(nproc)`.\n6. Refer to the docs for flashing and debugging info: `https://nuttx.apache.org/docs/latest/platforms/arm/stm32h7/index.html`.",
+        "settings": [
+            {
+                "type": "always",
+                "label": "set the defconfig",
+                "actions": [
+                    {
+                        "toReplace": "\\./tools/configure\\.sh -l sim:lvgl_fb",
+                        "newContent": "./tools/configure.sh -l stm32h745i-disco:lvgl",
+                        "filePath": "setup.sh"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "NuttX Waveshare RP2040-LCD-1.28",
+        "maintainer": "NuttX",
+        "hostOperatingsystem": [
+            "Linux"
+        ],
+        "environment": [
+            "make",
+            "CMake",
+            "Linux"
+        ],
+        "hardware": {
+            "chipVendor": "Raspberry Pi",
+            "manufacturer": "Waveshare",
+            "specs": {
+                "MCU": "RP2040",
+                "RAM": "264 KB internal SRAM",
+                "Flash": "2 MB",
+                "GPU": "None",
+                "Resolution": "240x240",
+                "Display Size": "1.28\u201d diameter",
+                "Interface": "SPI",
+                "Color Depth": "16-bit",
+                "Technology": "IPS (GC9A01A)",
+                "DPI": "188 px/inch",
+                "Touch Pad": "Capacitive (CST816T)"
+            }
+        },
+        "description": "NuttX is a highly configurable RTOS that implements many POSIX standard interfaces for a familliar development experience and well defined boundaries between components. The Waveshare RP2040-LCD-1.28 is a round touch display module powered by a Raspberry Pi RP2040 MCU. This option creates a NuttX project for the Waveshare RP2040-LCD-1.28 based on the NuttX LVGL defconfig for waveshare-rp2040-lcd-1.28 and a basic directory structure for your custom LVGL app.",
+        "shortDescription": "NuttX RTOS project for Waveshare RP2040-LCD-1.28 with LVGL",
+        "urlToClone": "https://github.com/lvgl/lv_nuttx.git",
+        "logos": [
+            "https://raw.githubusercontent.com/lvgl/project-creator/master/meta/images/nuttx/logo.svg"
+        ],
+        "branches": [
+            "release/v9.2"
+        ],
+        "getStartedInstructions": "1. Install the NuttX prerequisites and KConfig frontend: `https://nuttx.apache.org/docs/latest/quickstart/install.html`.\n2. Aditionally, install `unzip`.\n3. Install the Raspberry Pi Pico SDK: `https://nuttx.apache.org/docs/latest/platforms/arm/rp2040/index.html#installation`.\n4. Run `./setup.sh`.\n5. Run `cd nuttx/`.\n6. Run `make -j$(nproc)`.\n7. Copy the UF2 file to the device: `https://nuttx.apache.org/docs/latest/platforms/arm/rp2040/index.html#programming`.",
+        "settings": [
+            {
+                "type": "always",
+                "label": "set the defconfig",
+                "actions": [
+                    {
+                        "toReplace": "\\./tools/configure\\.sh -l sim:lvgl_fb",
+                        "newContent": "./tools/configure.sh -l waveshare-rp2040-lcd-1.28:lvgl",
+                        "filePath": "setup.sh"
+                    }
+                ]
+            }
+        ]
     }
 ]
