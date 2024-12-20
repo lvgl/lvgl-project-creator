@@ -861,5 +861,119 @@
                 ]
             }
         ]
+    },
+    {
+        "name": "Zephyr MIMXRT1170-EVKB",
+        "maintainer": "Zephyr",
+        "hostOperatingsystem": [
+            "Windows",
+            "Linux",
+            "MacOS"
+        ],
+        "environment": [
+            "cmake",
+            "Linux"
+        ],
+        "hardware": {
+            "chipVendor": "NXP",
+            "manufacturer": "NXP",
+            "specs": {
+                "MCU": "i.MX RT1176xxA",
+                "RAM": "256 MB SRAM",
+                "Flash": "16 MB",
+                "GPU": "PXP",
+                "Resolution": "800x480",
+                "Display Size": "4.3\u201d",
+                "Interface": "MIPI DSI",
+                "Color Depth": "24-bit",
+                "Technology": "LCD",
+                "DPI": "128 px/inch",
+                "Touch Pad": "Capacitive"
+            }
+        },
+        "description": "The Zephyr RTOS is a open source, highly configurable, scalable, secure, modular and vendor neutral real time operating system. The NXP MIMXRT1170-EVK is a devboard with an optional touchscreen. This option creates a Zephyr project for the MIMXRT1170-EVK based on the Zephyr LVGL for mimxrt1170-evk and a basic directory structure for your custom LVGL app.",
+        "shortDescription": "Zephyr RTOS project for MIMXRT1170-EVK with LVGL",
+        "urlToClone": "https://github.com/lvgl/lv_zephyr",
+        "logos": [
+            "https://raw.githubusercontent.com/lvgl/project-creator/master/meta/images/zephyr/logo.svg"
+        ],
+        "branches": [
+            "release/v9.2"
+        ],
+        "getStartedInstructions": "1. Install Zephyr on your host machine: `https://docs.zephyrproject.org/latest/develop/getting_started/index.html`.\n2. Run `west build -p -bmimxrt1170_evk@B/mimxrt1176/cm7 --shield rk055hdmipi4ma0 application`.\n3.  Run `west flash` for flashing.\n4. Run `west debug` for debugging.",
+        "settings": [
+            {
+                "type": "dropdown",
+                "label": "Show performance monitor",
+                "options": [
+                    {
+                        "name": "Yes",
+                        "value": "1",
+                        "default": "true"
+                    },
+                    {
+                        "name": "No",
+                        "value": "0"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Zephyr M5Stack Core 2",
+        "maintainer": "Zephyr",
+        "hostOperatingsystem": [
+            "Windows",
+            "Linux",
+            "MacOS"
+        ],
+        "environment": [
+            "cmake",
+            "Linux"
+        ],
+        "hardware": {
+            "chipVendor": "Espressif",
+            "manufacturer": "Espressif",
+            "specs": {
+                "MCU": "ESP32",
+                "RAM": "8 MB SRAM",
+                "Flash": "16 MB",
+                "GPU": "None",
+                "Resolution": "320x240",
+                "Display Size": "2.1\u201d",
+                "Interface": "Parallell 8080 16bit",
+                "Color Depth": "14-bit",
+                "Technology": "LCD",
+                "DPI": "128 px/inch",
+                "Touch Pad": "Capacitive"
+            }
+        },
+        "description": "The Zephyr RTOS is a open source, highly configurable, scalable, secure, modular and vendor neutral real time operating system. The NXP MIMXRT1170-EVK is a devboard with an optional touchscreen. This option creates a Zephyr project for the MIMXRT1170-EVK based on the Zephyr LVGL for mimxrt1170-evk and a basic directory structure for your custom LVGL app.",
+        "shortDescription": "Zephyr RTOS project for M5Stack Core 2 with LVGL",
+        "urlToClone": "https://github.com/lvgl/lv_zephyr",
+        "logos": [
+            "https://raw.githubusercontent.com/lvgl/project-creator/master/meta/images/zephyr/logo.svg"
+        ],
+        "branches": [
+            "release/v9.2"
+        ],
+        "getStartedInstructions": "1. Install Zephyr on your host machine: `https://docs.zephyrproject.org/latest/develop/getting_started/index.html`.\n2. Run `west build -pauto -bm5stack_core2/esp32/procpu application`.\n3.  Run `west flash` for flashing.\n4. Run `west debug` for debugging.",
+        "settings": [
+            {
+                "type": "dropdown",
+                "label": "Show performance monitor",
+                "options": [
+                    {
+                        "name": "Yes",
+                        "value": "1",
+                        "default": "true"
+                    },
+                    {
+                        "name": "No",
+                        "value": "0"
+                    }
+                ]
+            }
+        ]
     }
 ]
